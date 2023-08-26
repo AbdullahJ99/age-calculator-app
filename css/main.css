@@ -1,14 +1,14 @@
-html{
+html {
     font-size: 32px;
 }
 
-body{
-    font-family: 'Poppins';
+body {
+    font-family: 'Poppins', sans-serif;
     font-size: 1em;
     background-color: hsl(0, 0%, 94%);
 }
 
-.age-container{
+.age-container {
     background-color: hsl(0, 0%, 100%);
     width: 95%;
     display: flex;
@@ -18,30 +18,41 @@ body{
     padding: 20px 10px;
 }
 
-.input-container{
+.input-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     margin: 20px 0;
 }
 
-.input-container div{
+.input-container div {
     width: 30%;
 }
 
-.input-container div p{
+.input-container div p {
     margin: 0;
     font-size: .5rem;
-    font-weight: bold;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
-.input-container input{
-    width: 80%;
+.input-container input {
+    width: 95%;
     border: 2px hsl(0, 0%, 86%) solid;
     border-radius: 5px;
     font-size: 1rem;
-    font-weight: bolder;
+    font-weight: 800;
     color: hsl(0, 0%, 8%);
     padding: 10px;
+    box-sizing: border-box;
+}
+
+.calculated-age h1 {
+    font-weight: 800;
+    font-style: italic;
+    margin: 0;
+}
+
+.calculated-age span {
+    color: hsl(259, 100%, 65%);
 }

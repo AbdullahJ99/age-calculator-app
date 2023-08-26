@@ -1,0 +1,47 @@
+html{
+    font-size: 32px;
+}
+
+body{
+    font-family: 'Poppins';
+    font-size: 1em;
+    background-color: hsl(0, 0%, 94%);
+}
+
+.age-container{
+    background-color: hsl(0, 0%, 100%);
+    width: 95%;
+    display: flex;
+    flex-flow: column wrap;
+    border-radius: 30px;
+    border-bottom-right-radius: 100px;
+    padding: 20px 10px;
+}
+
+.input-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.input-container div{
+    width: 30%;
+}
+
+.input-container div p{
+    margin: 0;
+    font-size: .5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.input-container input{
+    width: 80%;
+    border: 2px hsl(0, 0%, 86%) solid;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: hsl(0, 0%, 8%);
+    padding: 10px;
+}

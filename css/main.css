@@ -56,6 +56,14 @@ body {
     color: hsl(0, 100%, 67%);
 }
 
+.red-text{
+    color: hsl(0, 100%, 67%);
+}
+
+.red-border{
+    border-color: hsl(0, 100%, 67%);
+}
+
 .button-container{
     margin: 20px 0;
     text-align: center;

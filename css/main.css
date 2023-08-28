@@ -47,6 +47,15 @@ body {
     box-sizing: border-box;
 }
 
+.day-error,
+.month-error,
+.year-error{
+    font-size: .75rem;
+    font-style: italic;
+    font-weight: 400;
+    color: hsl(0, 100%, 67%);
+}
+
 .button-container{
     margin: 20px 0;
     text-align: center;

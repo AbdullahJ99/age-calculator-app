@@ -40,7 +40,7 @@ body {
     width: 95%;
     border: 2px hsl(0, 0%, 86%) solid;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: .875rem;
     font-weight: 800;
     color: hsl(0, 0%, 8%);
     padding: 10px;
@@ -56,7 +56,7 @@ body {
     margin: 0;
 }
 
-.calculate-button{
+.calculate{
     background-color: hsl(259, 100%, 65%);
     height: 75px;
     width: 75px;

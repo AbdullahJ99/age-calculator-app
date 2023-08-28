@@ -19,23 +19,25 @@
 
 <body>
   <div class="age-container">
-    <div class="input-container">
-      <div class="time-container">
-        <p>D a y</p>
-        <input type="text" placeholder="DD">
+    <form class="age-form">
+      <div class="input-container">
+        <div class="time-container">
+          <p>D a y</p>
+          <input class="day-input" type="text" placeholder="DD">
+        </div>
+        <div class="time-container">
+          <p>M o n t h</p>
+          <input class="month-input" type="text" placeholder="MM">
+        </div>
+        <div class="time-container">
+          <p>Y e a r</p>
+          <input class="year-input" type="text" placeholder="YYYY">
+        </div>
       </div>
-      <div class="time-container">
-        <p>M o n t h</p>
-        <input type="text" placeholder="MM">
+      <div class="button-container">
+        <button class="calculate"><img src="assets/images/icon-arrow.svg"></button>
       </div>
-      <div class="time-container">
-        <p>Y e a r</p>
-        <input type="text" placeholder="YYYY">
-      </div>
-    </div>
-    <div class="button-container">
-      <button class="calculate-button"><img src="assets/images/icon-arrow.svg" alt="Downwards arrow"></button>
-    </div>
+    </form>
     <div class="calculated-age">
       <h1 class="years-header"><span class="years">--</span> years</h1>
       <h1 class="months-header"><span class="months">--</span> months</h1>
@@ -43,6 +45,8 @@
     </div>
   </div>
 
+
+  <script src="script/main.js"></script>
 </body>
 
 </html>

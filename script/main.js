@@ -32,7 +32,7 @@ calculateButton.addEventListener("click", function (e) {
     const year = Number(yearInput.value);
     const month = Number(monthInput.value);
     const day = Number(dayInput.value);
-    console.log(validateAll(year, month, day));
+    validateAll(year, month, day);
 });
 
 const validateYear = (input) => {
@@ -141,13 +141,73 @@ const validateDayToMonth = (day, month) => {
     }
 }
 
+const validateDate = (year, month, day) => {
+    const today = getToday();
+    const yearDif = today[0] - year;
+    const monthDif = today[1] - month;
+    const dayDif = today[2] - day;
+    if (yearDif > 0) {
+        dayTitle.classList.remove("red-text");
+        dayInput.classList.remove("red-border");
+        monthTitle.classList.remove("red-text");
+        monthInput.classList.remove("red-border");
+        yearTitle.classList.remove("red-text");
+        yearInput.classList.remove("red-border");
+        dayError.innerText = "";
+        return 1;
+    } else if (yearDif == 0) {
+        if (monthDif > 0) {
+            dayTitle.classList.remove("red-text");
+            dayInput.classList.remove("red-border");
+            monthTitle.classList.remove("red-text");
+            monthInput.classList.remove("red-border");
+            yearTitle.classList.remove("red-text");
+            yearInput.classList.remove("red-border");
+            dayError.innerText = "";
+            return 1;
+        } else if (monthDif == 0) {
+            if (dayDif > 0) {
+                dayTitle.classList.remove("red-text");
+                dayInput.classList.remove("red-border");
+                monthTitle.classList.remove("red-text");
+                monthInput.classList.remove("red-border");
+                yearTitle.classList.remove("red-text");
+                yearInput.classList.remove("red-border");
+                dayError.innerText = "";
+                return 1;
+            } else {
+                dayTitle.classList.add("red-text");
+                dayInput.classList.add("red-border");
+                monthTitle.classList.add("red-text");
+                monthInput.classList.add("red-border");
+                yearTitle.classList.add("red-text");
+                yearInput.classList.add("red-border");
+                dayError.innerText = "Must be a past date.";
+                return 0;
+            }
+        }
+    }
+    dayTitle.classList.add("red-text");
+    dayInput.classList.add("red-border");
+    monthTitle.classList.add("red-text");
+    monthInput.classList.add("red-border");
+    yearTitle.classList.add("red-text");
+    yearInput.classList.add("red-border");
+    dayError.innerText = "Must be a past date.";
+    return 0;
+}
+
 const validateAll = (year, month, day) => {
     const validYear = validateYear(year);
     const validMonth = validateMonth(month);
     const validDay = validateDay(day);
     let dayToMonth = 0;
-    if (validDay && validMonth){
-       dayToMonth = validateDayToMonth(day,month);
+    if (validDay && validMonth) {
+        dayToMonth = validateDayToMonth(day, month);
     }
-    return validYear && validMonth && validDay && dayToMonth;
+    let validDate = 0;
+    if (validDay && validMonth && validYear) {
+        validDate = validateDate(year, month, day);
+    }
+    return validYear && validMonth && validDay && dayToMonth && validDate;
 }

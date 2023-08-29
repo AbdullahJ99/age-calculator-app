@@ -18,6 +18,12 @@ const dayTitle = document.querySelector(".day-title");
 const monthTitle = document.querySelector(".month-title");
 //Year title
 const yearTitle = document.querySelector(".year-title");
+//Day number
+const dayNumber = document.querySelector(".days");
+//Month number
+const monthNumber = document.querySelector(".months");
+//Year number
+const yearNumber = document.querySelector(".years");
 
 const getToday = () => {
     const today = new Date();
@@ -32,7 +38,23 @@ calculateButton.addEventListener("click", function (e) {
     const year = Number(yearInput.value);
     const month = Number(monthInput.value);
     const day = Number(dayInput.value);
-    validateAll(year, month, day);
+    if(validateAll(year, month, day)){
+        const today = getToday();
+        let days = today[2] - day;
+        let months = today[1] - month;
+        let years = today[0] - year;
+        if(days < 0){
+            days += 31;
+            months -= 1;
+        }
+        if(months < 0){
+            months += 12;
+            years -= 1;
+        }
+        yearNumber.innerText = years;
+        monthNumber.innerText = months;
+        dayNumber.innerText = days;
+    }
 });
 
 const validateYear = (input) => {
@@ -53,7 +75,7 @@ const validateYear = (input) => {
         yearTitle.classList.add("red-text");
         yearInput.classList.add("red-border");
         yearError.innerText = "Please input a year.";
-        return -1;
+        return 0;
     }
 }
 
@@ -95,7 +117,7 @@ const validateDay = (input) => {
         dayTitle.classList.add("red-text");
         dayInput.classList.add("red-border");
         dayError.innerText = "Please input a day.";
-        return -1;
+        return 0;
     }
 }
 

@@ -51,9 +51,12 @@ calculateButton.addEventListener("click", function (e) {
             months += 12;
             years -= 1;
         }
-        yearNumber.innerText = years;
+        /*yearNumber.innerText = years;
         monthNumber.innerText = months;
-        dayNumber.innerText = days;
+        dayNumber.innerText = days;*/
+        animateValue(yearNumber,Number(yearNumber.innerText),years,500);
+        animateValue(monthNumber,Number(monthNumber.innerText),months,500);
+        animateValue(dayNumber,Number(dayNumber.innerText),days,500);
     }
 });
 
@@ -233,3 +236,19 @@ const validateAll = (year, month, day) => {
     }
     return validYear && validMonth && validDay && dayToMonth && validDate;
 }
+
+
+
+
+const animateValue = (obj, start, end, duration) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerText = Math.floor(progress * (end - start) + start);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }

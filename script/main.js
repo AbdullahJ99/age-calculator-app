@@ -38,25 +38,25 @@ calculateButton.addEventListener("click", function (e) {
     const year = Number(yearInput.value);
     const month = Number(monthInput.value);
     const day = Number(dayInput.value);
-    if(validateAll(year, month, day)){
+    if (validateAll(year, month, day)) {
         const today = getToday();
         let days = today[2] - day;
         let months = today[1] - month;
         let years = today[0] - year;
-        if(days < 0){
+        if (days < 0) {
             days += 31;
             months -= 1;
         }
-        if(months < 0){
+        if (months < 0) {
             months += 12;
             years -= 1;
         }
         /*yearNumber.innerText = years;
         monthNumber.innerText = months;
         dayNumber.innerText = days;*/
-        animateValue(yearNumber,Number(yearNumber.innerText),years,500);
-        animateValue(monthNumber,Number(monthNumber.innerText),months,500);
-        animateValue(dayNumber,Number(dayNumber.innerText),days,500);
+        animateValue(yearNumber, Number(yearNumber.innerText), years, 500);
+        animateValue(monthNumber, Number(monthNumber.innerText), months, 500);
+        animateValue(dayNumber, Number(dayNumber.innerText), days, 500);
     }
 });
 
@@ -227,28 +227,25 @@ const validateAll = (year, month, day) => {
     const validMonth = validateMonth(month);
     const validDay = validateDay(day);
     let dayToMonth = 0;
+    let validDate = 0;
     if (validDay && validMonth) {
         dayToMonth = validateDayToMonth(day, month);
-    }
-    let validDate = 0;
-    if (validDay && validMonth && validYear) {
-        validDate = validateDate(year, month, day);
+        if (validDay && validMonth && validYear && dayToMonth) {
+            validDate = validateDate(year, month, day);
+        }
     }
     return validYear && validMonth && validDay && dayToMonth && validDate;
 }
 
-
-
-
 const animateValue = (obj, start, end, duration) => {
     let startTimestamp = null;
     const step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      obj.innerText = Math.floor(progress * (end - start) + start);
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerText = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
     };
     window.requestAnimationFrame(step);
-  }
+}

@@ -140,7 +140,7 @@ body {
         margin: 0;
     }
 
-    input:active{
+    input:hover{
         border-color: hsl(259, 100%, 65%);
     }
 

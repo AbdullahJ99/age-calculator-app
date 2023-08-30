@@ -139,4 +139,12 @@ body {
         font-size: 2rem;
         margin: 0;
     }
+
+    input:active{
+        border-color: hsl(259, 100%, 65%);
+    }
+
+    button:hover{
+        background-color: hsl(0, 0%, 8%);
+    }
 }
